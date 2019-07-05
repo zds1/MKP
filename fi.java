@@ -8,18 +8,18 @@ public class fi {
 	static String[] sp;
 	static int [][][] a;
 	static String[] h;
-	static int c; // ¸ø¶¨µÄÔ¼Êø
-	static int n = 0; // ¸ø¶¨µÄÎ¬¶È
-	static double givevalue = 0; // ¸ø¶¨µÄ¼Û¸ñ
-	static String [][]flags;  //Â·¾¶¼ÇÂ¼±í
-	static int[][]flagss; //¼ÛÖµ¼ÇÂ¼±í	
+	static int c; // ç»™å®šçš„çº¦æŸ
+	static int n = 0; // ç»™å®šçš„ç»´åº¦
+	static double givevalue = 0; // ç»™å®šçš„ä»·æ ¼
+	static String [][]flags;  //è·¯å¾„è®°å½•è¡¨
+	static int[][]flagss; //ä»·å€¼è®°å½•è¡¨	
 	public static void main(String[] args) {
-		File file = new File("C:\\Users\\14651\\Desktop\\28¸öÉÌÆ·10¸öÔ¼Êø.txt");// ÎÒµÄtxtÎÄ±¾´æ·ÅÄ¿Â¼£¬¸ù¾İ×Ô¼ºµÄÂ·¾¶ĞŞ¸Ä¼´¿É
+		File file = new File("C:\\Users\\14651\\Desktop\\28ä¸ªå•†å“10ä¸ªçº¦æŸ.txt");// æˆ‘çš„txtæ–‡æœ¬å­˜æ”¾ç›®å½•ï¼Œæ ¹æ®è‡ªå·±çš„è·¯å¾„ä¿®æ”¹å³å¯
 		int[][][] gg = s(file);		
-		int wh = gg[0].length; // ¼ÇÂ¼¶şÎ¬µÄĞĞÊı
+		int wh = gg[0].length; // è®°å½•äºŒç»´çš„è¡Œæ•°
 		flags=new String[wh][wh*wh*wh*wh*wh];
 		flagss=new int[wh][wh*wh*wh*wh*wh];		
-		// Êä³ö¶ÁÈ¡ºÃµÄÊı¾İ
+		// è¾“å‡ºè¯»å–å¥½çš„æ•°æ®
 		 for (int iss = 0; iss < wh; iss++) {
 		 for (int is = 0; is < gg[0].length; is++) {
 		 System.out.print(gg[0][iss][is] + " ");
@@ -27,10 +27,10 @@ public class fi {
 		 System.out.println();
 		 }	 
 		for (int i = 0; i < wh - 2; i++) {
-			System.out.println("<========µÚ" + (i +1)+ "¸öÔ¼ÊøµÄ¿ÉÑ¡Â·¾¶Óë¼ÛÖµ======>");
-			c = gg[0][wh - 1][i]; // µ±Ç°µÄÏŞÖÆÌõ¼ş			
+			System.out.println("<========ç¬¬" + (i +1)+ "ä¸ªçº¦æŸçš„å¯é€‰è·¯å¾„ä¸ä»·å€¼======>");
+			c = gg[0][wh - 1][i]; // å½“å‰çš„é™åˆ¶æ¡ä»¶			
 
-			// ÊµÀı»¯
+			// å®ä¾‹åŒ–
 		se a = new se(c,givevalue,n,gg[0][i + 1],gg[0][0],i,flags,flagss);
 			a.b(0);			
 		}	
@@ -38,74 +38,74 @@ public class fi {
 		int aas=1;
 		String ap="";
 		int app=0;
-	 //Êä³öÂ·¾¶Óë¼Û¸ñ
+	 //è¾“å‡ºè·¯å¾„ä¸ä»·æ ¼
 		for(int i=0;i<as;i++) {	
 			
-			String u=flags[0][as];	      //´ÓµÚÒ»ĞĞµÄ×îºóÒ»¸ö¿ªÊ¼
+			String u=flags[0][as];	      //ä»ç¬¬ä¸€è¡Œçš„æœ€åä¸€ä¸ªå¼€å§‹
 			  for(int j=1;j<wh-2;j++) {  				  
-		        for (int k =Integer.parseInt(flags[j][0]); k >=1; k--) { // Êı×éµÄµÚÒ»¸öÔªËØÎª×îÓÅ½âµÄ¸öÊı				
-			//±éÀú×Ó¼¯ÊÇ·ñÏàµÈ
+		        for (int k =Integer.parseInt(flags[j][0]); k >=1; k--) { // æ•°ç»„çš„ç¬¬ä¸€ä¸ªå…ƒç´ ä¸ºæœ€ä¼˜è§£çš„ä¸ªæ•°				
+			//éå†å­é›†æ˜¯å¦ç›¸ç­‰
 				if(u.equals(flags[j][k])) {
-					ap=u;      //¼ÇÂ¼Â·¾¶
-					app=flagss[j][k-1];  //¼ÇÂ¼¼ÛÖµ
-					aas++;   //´æÔÚÅĞ¶Ï
+					ap=u;      //è®°å½•è·¯å¾„
+					app=flagss[j][k-1];  //è®°å½•ä»·å€¼
+					aas++;   //å­˜åœ¨åˆ¤æ–­
 				}else
 					continue;
 				}
 				}
-			  //if(as>1)
-		        //  as--;
+			  if(as>1)
+		          as--;
 			  
 		}
 			if(aas>=wh-2) {
-			System.out.println("×îÓÅµÄÂ·¾¶Ñ¡ÔñÎª£º"+ap+"  ");
-			System.out.println("×îÓÅµÄ¼ÛÖµÎª£º"+app);
-			System.out.print("Ñ¡Ôñ£º   ");
+			System.out.println("æœ€ä¼˜çš„è·¯å¾„é€‰æ‹©ä¸ºï¼š"+ap+"  ");
+			System.out.println("æœ€ä¼˜çš„ä»·å€¼ä¸ºï¼š"+app);
+			System.out.print("é€‰æ‹©ï¼š   ");
 			for (int j = 0; j < ap.length(); j++) {
 				char tem = ap.charAt(j);
-				if (tem == '1') // ¿Õ¸ñ
-					System.out.print((j+1)+"ºÅ  ");
+				if (tem == '1') // ç©ºæ ¼
+					System.out.print((j+1)+"å·  ");
 			}
-			System.out.print("ÉÌÆ·");
+			System.out.print("å•†å“");
 			
 			}else
-			System.out.println("Ã»ÓĞàŞ");
+			System.out.println("æ²¡æœ‰å™¢");
 		}
 	
 	
 
-	// ¶ÁÈ¡Êı¾İ
+	// è¯»å–æ•°æ®
 	public static int[][][] s(File file) {
 		int i = 0;
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));// ¹¹ÔìÒ»¸öBufferedReaderÀàÀ´¶ÁÈ¡ÎÄ¼ş
+			BufferedReader br = new BufferedReader(new FileReader(file));// æ„é€ ä¸€ä¸ªBufferedReaderç±»æ¥è¯»å–æ–‡ä»¶
 			String s = null;
 			s = br.readLine();
 			h = s.split(" ");			
-			n = Integer.parseInt(h[0]); // ¶ÁÈ¡³öÎ¬¶È
-			givevalue = Integer.parseInt(h[2]); // ¶ÁÈ¡¼Û¸ñ
-			 splitss = new String[Integer.parseInt(h[1]) + 2]; // ³ıÈ¥µÚÒ»ĞĞÊ£ÓàµÄĞĞÊı
-			 sp = new String[Integer.parseInt(h[0])]; // ³ıÈ¥µÚÒ»ĞĞÓĞ¶àÉÙĞĞ
-			 a = new int[1][Integer.parseInt(h[1]) + 2][Integer.parseInt(h[0])*Integer.parseInt(h[0])*2]; // ×ª»»³É¶şÎ¬Êı×é
+			n = Integer.parseInt(h[0]); // è¯»å–å‡ºç»´åº¦
+			givevalue = Integer.parseInt(h[2]); // è¯»å–ä»·æ ¼
+			 splitss = new String[Integer.parseInt(h[1]) + 2]; // é™¤å»ç¬¬ä¸€è¡Œå‰©ä½™çš„è¡Œæ•°
+			 sp = new String[Integer.parseInt(h[0])]; // é™¤å»ç¬¬ä¸€è¡Œæœ‰å¤šå°‘è¡Œ
+			 a = new int[1][Integer.parseInt(h[1]) + 2][Integer.parseInt(h[0])*Integer.parseInt(h[0])*2]; // è½¬æ¢æˆäºŒç»´æ•°ç»„
 			
-			// Ñ­»·¶ÁÊı¾İ
-			while ((s = br.readLine()) != null) {// Ê¹ÓÃreadLine·½·¨£¬Ò»´Î¶ÁÒ»ĞĞ
+			// å¾ªç¯è¯»æ•°æ®
+			while ((s = br.readLine()) != null) {// ä½¿ç”¨readLineæ–¹æ³•ï¼Œä¸€æ¬¡è¯»ä¸€è¡Œ
 				splits = s.split("\n");
 				splitss[i] = splits[0];
-				int count = 0;// Í³¼Æ¿Õ¸ñ¸öÊı
-				// ÒÔ¿Õ¸ñÎª·Ö¸ô·û
+				int count = 0;// ç»Ÿè®¡ç©ºæ ¼ä¸ªæ•°
+				// ä»¥ç©ºæ ¼ä¸ºåˆ†éš”ç¬¦
 				for (int j = 0; j < splitss[i].length(); j++) {
 					char tem = s.charAt(j);
-					if (tem == ' ') // ¿Õ¸ñ
+					if (tem == ' ') // ç©ºæ ¼
 						count++;
 				}
 				sp = splitss[i].split(" ");				
-				for (int k = 0; k < count + 1; k++) {// È¡³öÔªËØ
-					a[0][i][k] = Integer.parseInt(sp[k]);// ½«×Ö·ûÊı×Ö×ª³ÉÕûĞÎ£¬°´¸ñÊ½´æÈëÊı×é
+				for (int k = 0; k < count + 1; k++) {// å–å‡ºå…ƒç´ 
+					a[0][i][k] = Integer.parseInt(sp[k]);// å°†å­—ç¬¦æ•°å­—è½¬æˆæ•´å½¢ï¼ŒæŒ‰æ ¼å¼å­˜å…¥æ•°ç»„
 				}
 				i++;
 			}
-			br.close(); // ¹Ø±Õ¶ÁÈ¡£¬·ÀÖ¹ÎÄ¼ş¶ªÊ§
+			br.close(); // å…³é—­è¯»å–ï¼Œé˜²æ­¢æ–‡ä»¶ä¸¢å¤±
 			return a;
 		} catch (Exception e) {
 			e.printStackTrace();
